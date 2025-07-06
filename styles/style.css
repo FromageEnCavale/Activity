@@ -225,14 +225,16 @@ body {
 }
 
 .modal-content {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    width: 340px;
-    padding: 20px;
-    border-radius: 28px;
+    width: 300px;
+    height: 200px;
+    padding-bottom: 50px;
+    border-radius: 14px;
     text-align: center;
     background-color: var(--1);
 }
@@ -262,9 +264,13 @@ body {
 }
 
 .modal-buttons {
+    position: absolute;
+    bottom: 0;
     display: flex;
-    gap: 10px;
-    padding-top: 10px;
+    /*gap: 10px;*/
+    width: 100%;
+    /*padding-top: 10px;*/
+    /*background-color: #34C759;*/
 }
 
 .modal-button {
@@ -272,23 +278,22 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px 14px;
-    border-radius: 8px;
+    width: 100%;
+    padding: 24px;
+    /*border-radius: 8px;*/
     cursor: pointer;
 }
 
 .modal-button.primary {
-    color: white;
-    background-color: blue;
+    color: blue;
 }
 
-.modal-button.secondary {
+/*.modal-button.secondary {
     background-color: var(--4);
-}
+}*/
 
 .modal-button.danger {
-    color: white;
-    background-color: red;
+    color: red;
 }
 
 .student-view {
