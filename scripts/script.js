@@ -256,7 +256,7 @@ class StudentActivityApp {
                 const state = student.activityStates[originalIndex] || 0;
 
                 // Appliquer la couleur selon l'état
-                const states = ['', 'valide', 'acquis', 'non-acquis', 'absent'];
+                const states = ['', 'valide', 'acquis', 'non-acquis'];
                 if (state > 0) {
                     card.classList.add(states[state]);
                 }
@@ -287,7 +287,7 @@ class StudentActivityApp {
         }
 
         const currentState = student.activityStates[activityIndex] || 0;
-        const newState = (currentState + 1) % 5; // 0, 1, 2, 3, 4, puis retour à 0
+        const newState = (currentState + 1) % 4; // 0, 1, 2, 3, 4, puis retour à 0
 
         if (newState === 0) {
             delete student.activityStates[activityIndex];

@@ -125,6 +125,7 @@ body {
     align-items: center;
     gap: 2px;
     border: 2px dashed var(--2);
+    background-color: transparent;
     text-align: center;
 }
 
@@ -149,7 +150,7 @@ body {
     width: 100%;
     padding: 10px 14px;
     border-radius: 14px;
-    border: 2px dashed var(--3);
+    border: 2px dashed transparent;
     background-color: var(--2);
     cursor: pointer;
 }
@@ -166,6 +167,41 @@ body {
 
 .student-view.active {
     display: flex;
+}
+
+.caption {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
+.caption div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.caption div:nth-child(1) div {
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    background-color: #3A86FF;
+}
+
+.caption div:nth-child(2) div {
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    background-color: #59CD90;
+}
+
+.caption div:nth-child(3) div {
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    background-color: #FE5F55;
 }
 
 #activitiesContainer {
@@ -191,22 +227,17 @@ body {
 }
 
 .activity-card.valide {
-    background: #3a86ff;
+    background-color: #3A86FF;
     color: white;
 }
 
 .activity-card.acquis {
-    background: #8338ec;
+    background-color: #59CD90;
     color: white;
 }
 
 .activity-card.non-acquis {
-    background: #ff006e;
-    color: white;
-}
-
-.activity-card.absent {
-    background: #fb5607;
+    background-color: #FE5F55;
     color: white;
 }
 
