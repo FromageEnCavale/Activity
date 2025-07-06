@@ -82,7 +82,7 @@ body {
     font-size: 16px;
 }
 
-/* ----- APP ----- */
+/* ----- STUDENT PAGE ----- */
 
 .main-view {
     position: relative;
@@ -90,6 +90,10 @@ body {
     flex-direction: column;
     gap: 20px;
     height: 100%;
+}
+
+.main-view.hidden {
+    display: none;
 }
 
 .grid {
@@ -136,6 +140,34 @@ body {
     text-align: center;
 }
 
+.add-activity-button {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    border: 2px dashed var(--3);
+    background-color: var(--2);
+    cursor: pointer;
+}
+
+/* ----- ACTIVITY PAGE ----- */
+
+.student-view {
+    position: relative;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.student-view.active {
+    display: flex;
+}
+
 #activitiesContainer {
     display: flex;
     flex-direction: column;
@@ -178,20 +210,6 @@ body {
     color: white;
 }
 
-.add-activity-button {
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 10px 14px;
-    border-radius: 14px;
-    border: 2px dashed var(--3);
-    background-color: var(--2);
-    cursor: pointer;
-}
-
 .back-button {
     position: absolute;
     bottom: 0;
@@ -204,112 +222,6 @@ body {
     border: 2px dashed transparent;
     background-color: var(--2);
     cursor: pointer;
-}
-
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    /*background-color: var(--background);*/
-    background-color: color-mix(in srgb, var(--background) 100%, transparent 25%);
-}
-
-.modal.show {
-    display: flex;
-}
-
-.modal-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 300px;
-    height: 200px;
-    padding-bottom: 50px;
-    border-radius: 14px;
-    text-align: center;
-    background-color: var(--1);
-}
-
-.modal-content div:nth-child(1) {
-    font-size: 20px;
-}
-
-.modal input {
-    padding: 10px 14px;
-    border-radius: 14px;
-    border: 2px dashed transparent;
-    background-color: var(--2);
-}
-
-.modal textarea {
-    min-height: 100px;
-    padding: 10px 14px;
-    border-radius: 14px;
-    border: 2px dashed transparent;
-    background-color: var(--2);
-    resize: none;
-}
-
-#activityNameInput {
-    width: 100%;
-}
-
-.modal-buttons {
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    /*gap: 10px;*/
-    width: 100%;
-    /*padding-top: 10px;*/
-    /*background-color: #34C759;*/
-}
-
-.modal-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 24px;
-    /*border-radius: 8px;*/
-    cursor: pointer;
-}
-
-.modal-button.primary {
-    color: blue;
-}
-
-/*.modal-button.secondary {
-    background-color: var(--4);
-}*/
-
-.modal-button.danger {
-    color: red;
-}
-
-.student-view {
-    position: relative;
-    display: none;
-    flex-direction: column;
-    gap: 20px;
-    height: 100%;
-}
-
-.student-view.active {
-    display: flex;
-}
-
-.main-view.hidden {
-    display: none;
 }
 
 /* ----- MEDIA QUERY ----- */
