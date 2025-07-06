@@ -190,23 +190,23 @@ body {
     cursor: pointer;
 }
 
-.activity-card.green {
-    background: #34C759;
+.activity-card.valide {
+    background: #3a86ff;
     color: white;
 }
 
-.activity-card.orange {
-    background: #FF9500;
+.activity-card.acquis {
+    background: #8338ec;
     color: white;
 }
 
-.activity-card.red {
-    background: #FF3B30;
+.activity-card.non-acquis {
+    background: #ff006e;
     color: white;
 }
 
-.activity-card.purple {
-    background: #AF52DE;
+.activity-card.absent {
+    background: #fb5607;
     color: white;
 }
 
