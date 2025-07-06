@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Evaluation">
+    <meta name="theme-color" content="black">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Evaluation</title>
+</head>
+<body>
+    <!-- Vue principale -->
+    <div id="mainView" class="main-view">
+        <div class="title">Élèves</div>
+        <div id="studentsGrid" class="grid">
+            <!-- Les élèves seront ajoutés ici -->
+        </div>
+        <div id="addActivityButton" class="add-activity-button">
+            Ajouter une nouvelle activité
+        </div>
+    </div>
+    <!-- Vue élève -->
+    <div id="studentView" class="student-view">
+        <div id="studentName"></div>
+        <div id="activitiesContainer">
+            <!-- Les activités seront ajoutées ici -->
+        </div>
+        <button id="backButton" class="back-button">Retour</button>
+    </div>
+    <!-- Modal pour ajouter un élève -->
+    <div id="addStudentModal" class="modal">
+        <div class="modal-content">
+            <div>Nom de l'élève</div>
+            <input type="text" id="studentNameInput" placeholder="Entrez le nom de l'élève">
+            <div class="modal-buttons">
+                <button id="cancelStudentButton" class="modal-button secondary">Annuler</button>
+                <button id="validateStudentButton" class="modal-button primary">Valider</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal pour ajouter une activité -->
+    <div id="addActivityModal" class="modal">
+        <div class="modal-content">
+            <div>Nom de l'activité</div>
+            <!--<input type="text" id="activityNameInput" placeholder="Entrez le nom de l'activité">-->
+            <textarea id="activityNameInput" placeholder="Entrez le nom de l'activité"></textarea>
+            <div class="modal-buttons">
+                <button id="cancelActivityButton" class="modal-button secondary">Annuler</button>
+                <button id="validateActivityButton" class="modal-button primary">Valider</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de confirmation de suppression -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <div id="deleteModalTitle">Confirmer la suppression</div>
+            <div id="deleteModalText">Êtes-vous sûr de vouloir supprimer cet élément ?</div>
+            <div class="modal-buttons">
+                <button id="cancelDeleteButton" class="modal-button secondary">Annuler</button>
+                <button id="confirmDeleteButton" class="modal-button danger">Supprimer</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="scripts/script.js" defer></script>
+</body>
+</html>

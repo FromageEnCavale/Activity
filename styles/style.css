@@ -1,0 +1,328 @@
+/* ----- RESET CSS ----- */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overscroll-behavior: none;
+}
+
+ul[role='list'], ol[role='list'] {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, input, textarea, select {
+    font: inherit;
+    color: inherit;
+    border: none;
+    background: none;
+    appearance: none;
+}
+
+:focus {
+    outline: none;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+input, textarea, select, button {
+    border-radius: 0;
+}
+
+/* ----- COLORS ----- */
+
+:root {
+    --background-light: #FFFFFF;
+    --background-dark: #000000;
+    --text-light: #000000;
+    --text-dark: #FFFFFF;
+    --1-light: #F5F5F5;
+    --1-dark: #141414;
+    --2-light: #EBEBEB;
+    --2-dark: #292929;
+    --3-light: #E0E0E0;
+    --3-dark: #3D3D3D;
+    --4-light: #D6D6D6;
+    --4-dark: #525252;
+}
+
+/* ----- BODY ----- */
+
+html, body {
+    width: 100%;
+    height: 100%;
+    scrollbar-width: none;
+}
+
+body {
+    padding: 50px 20px;
+    color: var(--text);
+    background-color: var(--background);
+    font-family: system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+/* ----- APP ----- */
+
+.main-view {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 33px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    padding: 10px;
+    border-radius: 14px;
+    background-color: var(--1);
+    cursor: pointer;
+}
+
+.card.add-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    border: 2px dashed var(--2);
+    text-align: center;
+}
+
+.title {
+    font-size: 32px;
+}
+
+#studentName {
+    font-size: 32px;
+}
+
+.student-name {
+    text-align: center;
+}
+
+#activitiesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 33px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.activity-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    padding: 10px;
+    border-radius: 14px;
+    background-color: var(--1);
+    text-align: center;
+    cursor: pointer;
+}
+
+.activity-card.green {
+    background: #34C759;
+    color: white;
+}
+
+.activity-card.orange {
+    background: #FF9500;
+    color: white;
+}
+
+.activity-card.red {
+    background: #FF3B30;
+    color: white;
+}
+
+.activity-card.purple {
+    background: #AF52DE;
+    color: white;
+}
+
+.add-activity-button {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    border: 2px dashed var(--3);
+    background-color: var(--2);
+    cursor: pointer;
+}
+
+.back-button {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    border: 2px dashed transparent;
+    background-color: var(--2);
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    /*background-color: var(--background);*/
+    background-color: color-mix(in srgb, var(--background) 100%, transparent 25%);
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 340px;
+    padding: 20px;
+    border-radius: 28px;
+    text-align: center;
+    background-color: var(--1);
+}
+
+.modal-content div:nth-child(1) {
+    font-size: 20px;
+}
+
+.modal input {
+    padding: 10px 14px;
+    border-radius: 14px;
+    border: 2px dashed transparent;
+    background-color: var(--2);
+}
+
+.modal textarea {
+    min-height: 100px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    border: 2px dashed transparent;
+    background-color: var(--2);
+    resize: none;
+}
+
+#activityNameInput {
+    width: 100%;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.modal-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modal-button.primary {
+    color: white;
+    background-color: blue;
+}
+
+.modal-button.secondary {
+    background-color: var(--4);
+}
+
+.modal-button.danger {
+    color: white;
+    background-color: red;
+}
+
+.student-view {
+    position: relative;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.student-view.active {
+    display: flex;
+}
+
+.main-view.hidden {
+    display: none;
+}
+
+/* ----- MEDIA QUERY ----- */
+
+@media (prefers-color-scheme: light) {
+
+    :root {
+        --background: var(--background-light);
+        --text: var(--text-light);
+        --1: var(--1-light);
+        --2: var(--2-light);
+        --3: var(--3-light);
+        --4: var(--4-light);
+    }
+
+}
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --background: var(--background-dark);
+        --text: var(--text-dark);
+        --1: var(--1-dark);
+        --2: var(--2-dark);
+        --3: var(--3-dark);
+        --4: var(--4-dark);
+    }
+
+}
