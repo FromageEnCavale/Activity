@@ -53,12 +53,12 @@ class StudentActivityApp {
             this.showMainView();
         });
 
-        // Bouton Supprimer élèves
+        // Bouton Modifier élèves
         document.getElementById('deleteStudentButton').addEventListener('click', () => {
             this.toggleDeleteMode('student');
         });
 
-        // Bouton Supprimer activités
+        // Bouton Modifier activités
         document.getElementById('deleteActivityButton').addEventListener('click', () => {
             this.toggleDeleteMode('activity');
         });
@@ -71,7 +71,7 @@ class StudentActivityApp {
             document.getElementById('deleteActivityButton');
 
         if (!this.deleteMode) {
-            // Activer le mode Supprimer
+            // Activer le mode Modifier
             this.deleteMode = true;
             this.selectedIndexes = [];
             button.textContent = 'Valider';
@@ -83,7 +83,7 @@ class StudentActivityApp {
                 this.setActivityDeleteMode(true);
             }
         } else {
-            // Valider la Supprimer ou annuler
+            // Valider la Modifier ou annuler
             if (this.selectedIndexes.length > 0) {
                 this.confirmDelete();
             }
@@ -218,7 +218,7 @@ class StudentActivityApp {
                     const newStates = {};
                     Object.keys(student.activityStates).forEach(key => {
                         const keyIndex = parseInt(key);
-                        // Calculer le nouveau index après Supprimer
+                        // Calculer le nouveau index après Modifier
                         let newIndex = keyIndex;
                         sortedIndexes.forEach(deletedIndex => {
                             if (keyIndex > deletedIndex) {
@@ -278,7 +278,7 @@ class StudentActivityApp {
         document.getElementById('mainView').classList.add('hidden');
         document.getElementById('studentView').classList.add('active');
 
-        // Réinitialiser le mode Supprimer
+        // Réinitialiser le mode Modifier
         this.deleteMode = false;
         this.selectedIndexes = [];
         const deleteButton = document.getElementById('deleteActivityButton');
@@ -291,11 +291,11 @@ class StudentActivityApp {
         document.getElementById('mainView').classList.remove('hidden');
         document.getElementById('studentView').classList.remove('active');
 
-        // Réinitialiser le mode Supprimer
+        // Réinitialiser le mode Modifier
         this.deleteMode = false;
         this.selectedIndexes = [];
         const deleteButton = document.getElementById('deleteStudentButton');
-        deleteButton.textContent = 'Supprimer';
+        deleteButton.textContent = 'Modifier';
         deleteButton.classList.remove('validate');
     }
 
