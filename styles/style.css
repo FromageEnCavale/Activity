@@ -157,8 +157,8 @@ body {
 }
 
 .card.delete-mode {
+    border: 2px dashed #FE5F55;
     color: var(--text);
-    background-color: var(--1);
 }
 
 .card.selected {
@@ -276,6 +276,7 @@ body {
 
 .activity-card.delete-mode {
     color: var(--text);
+    border: 2px dashed #FE5F55;
     background-color: var(--1);
 }
 
