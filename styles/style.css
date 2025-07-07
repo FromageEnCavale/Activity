@@ -187,6 +187,7 @@ body {
     gap: 2px;
     border: 2px dashed var(--2);
     text-align: center;
+    color: var(--text);
     background-color: transparent;
 }
 
