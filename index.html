@@ -13,33 +13,33 @@
     <title>Evaluation</title>
 </head>
 <body>
-    <!-- Vue principale -->
     <div id="mainView" class="main-view">
         <div class="title-container">
             <div class="title">Élèves</div>
-            <div id="deleteStudentButton" class="delete-button">Modifier</div>
+            <div class="button-container">
+                <div id="cancelStudentButton" class="delete-button cancel hidden">Annuler</div>
+                <div id="validateStudentButton" class="delete-button validate hidden">Valider</div>
+                <div id="deleteStudentButton" class="delete-button">Modifier</div>
+            </div>
         </div>
-        <div id="studentsGrid" class="grid">
-            <!-- Les élèves seront ajoutés ici -->
-        </div>
-        <div id="addActivityButton" class="add-activity-button">
-            Ajouter une nouvelle activité
-        </div>
+        <div id="studentsGrid" class="grid"></div>
+        <div id="addActivityButton" class="add-activity-button">Ajouter une nouvelle activité</div>
     </div>
-    <!-- Vue élève -->
     <div id="studentView" class="student-view">
         <div class="title-container">
             <div id="studentName"></div>
-            <div id="deleteActivityButton" class="delete-button">Modifier</div>
+            <div class="button-container">
+                <div id="cancelActivityButton" class="delete-button cancel hidden">Annuler</div>
+                <div id="validateActivityButton" class="delete-button validate hidden">Valider</div>
+                <div id="deleteActivityButton" class="delete-button">Modifier</div>
+            </div>
         </div>
         <div class="caption">
             <div>Validé<div></div></div>
             <div>Acquis<div></div></div>
             <div>Non Acquis<div></div></div>
         </div>
-        <div id="activitiesContainer">
-            <!-- Les activités seront ajoutées ici -->
-        </div>
+        <div id="activitiesContainer"></div>
         <button id="backButton" class="back-button">Retour</button>
     </div>
     <script type="module" src="scripts/script.js" defer></script>

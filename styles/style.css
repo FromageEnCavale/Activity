@@ -118,6 +118,13 @@ body {
     font-size: 32px;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
 .delete-button {
     display: flex;
     justify-content: center;
@@ -126,6 +133,10 @@ body {
     border-radius: 10px;
     background-color: var(--1);
     cursor: pointer;
+}
+
+.delete-button.hidden {
+    display: none;
 }
 
 .grid {
