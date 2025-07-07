@@ -117,6 +117,14 @@ body {
     cursor: pointer;
 }
 
+.card.ps-student {
+    background-color: rgba(255, 105, 180, 0.25);
+}
+
+.card.ms-student {
+    background-color: rgba(147, 112, 219, 0.25);
+}
+
 .card.add-button {
     display: flex;
     flex-direction: column;

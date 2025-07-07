@@ -67,6 +67,14 @@ class StudentActivityApp {
             sortedStudents.forEach(({student, originalIndex}) => {
                 const card = document.createElement('div');
                 card.className = 'card';
+
+                // Ajouter la classe selon le type d'élève
+                if (student.type === 'PS') {
+                    card.classList.add('ps-student');
+                } else if (student.type === 'MS') {
+                    card.classList.add('ms-student');
+                }
+
                 card.innerHTML = `
                                     <div class="student-name">${student.name}</div>
                                 `;
@@ -157,8 +165,12 @@ class StudentActivityApp {
     showAddStudentModal() {
         const name = prompt('Nom de l\'élève:');
         if (name && name.trim()) {
+            const isMS = confirm('Est-ce un élève de MS ?');
+            const studentType = isMS ? 'MS' : 'PS';
+
             this.students.push({
                 name: name.trim(),
+                type: studentType,
                 activityStates: {}
             });
             this.saveData();
