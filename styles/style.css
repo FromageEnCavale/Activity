@@ -12,6 +12,7 @@
     user-select: none;
     -webkit-user-drag: none;
     user-drag: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 ul[role='list'], ol[role='list'] {
@@ -23,12 +24,24 @@ a {
     color: inherit;
 }
 
+a, a:active, a:focus {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    box-shadow: none;
+}
+
 button, input, textarea, select {
     font: inherit;
     color: inherit;
     border: none;
     background: none;
     appearance: none;
+}
+
+button, button:active, button:focus {
+    outline: none;
+    box-shadow: none;
+    -webkit-appearance: none;
 }
 
 :focus {
@@ -69,6 +82,7 @@ html, body {
     height: 100%;
     scrollbar-width: none;
     -webkit-user-drag: none;
+    touch-action: manipulation;
 }
 
 body {
