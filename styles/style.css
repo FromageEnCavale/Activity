@@ -73,6 +73,12 @@ input, textarea, select, button {
     --3-dark: #333333;
     --text-light: #000000;
     --text-dark: #FFFFFF;
+    --blue: #0ACDFF;
+    --green: #6DA34D;
+    --red: #BF211E;
+    --red-5O: rgba(191, 33, 30, 0.5);
+    --pink: #D55672;
+    --purple: #662C91;
 }
 
 /* ----- BODY ----- */
@@ -163,11 +169,11 @@ body {
 }
 
 .card.ps-student {
-    background-color: rgba(255, 105, 180, 0.25);
+    background-color: var(--pink);
 }
 
 .card.ms-student {
-    background-color: rgba(147, 112, 219, 0.25);
+    background-color: var(--purple);
 }
 
 .card.add-button {
@@ -182,13 +188,15 @@ body {
 }
 
 .card.delete-mode {
-    border: 2px dashed #FE5F55;
+    border: 2px dashed var(--red);
+    opacity: 0.5;
     color: var(--text);
     background-color: var(--1);
 }
 
 .card.selected {
-    background-color: rgba(254, 95, 85, 0.5);
+    opacity: 1;
+    background-color: var(--red-5O);
 }
 
 #studentName {
@@ -245,21 +253,21 @@ body {
     width: 14px;
     height: 14px;
     border-radius: 100%;
-    background-color: #3A86FF;
+    background-color: var(--blue);
 }
 
 .caption div:nth-child(2) div {
     width: 14px;
     height: 14px;
     border-radius: 100%;
-    background-color: #59CD90;
+    background-color: var(--green);
 }
 
 .caption div:nth-child(3) div {
     width: 14px;
     height: 14px;
     border-radius: 100%;
-    background-color: #FE5F55;
+    background-color: var(--red);
 }
 
 #activitiesContainer {
@@ -286,28 +294,30 @@ body {
 }
 
 .activity-card.valide {
-    background-color: #3A86FF;
+    background-color: var(--blue);
     color: white;
 }
 
 .activity-card.acquis {
-    background-color: #59CD90;
+    background-color: var(--green);
     color: white;
 }
 
 .activity-card.non-acquis {
-    background-color: #FE5F55;
+    background-color: var(--red);
     color: white;
 }
 
 .activity-card.delete-mode {
-    border: 2px dashed #FE5F55;
+    border: 2px dashed var(--red);
+    opacity: 0.5;
     color: var(--text);
     background-color: var(--1);
 }
 
 .activity-card.selected {
-    background-color: rgba(254, 95, 85, 0.5);
+    opacity: 1;
+    background-color: var(--red-5O);
 }
 
 .back-button {
