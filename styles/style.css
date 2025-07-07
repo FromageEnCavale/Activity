@@ -50,7 +50,8 @@ input, textarea, select, button {
 /* ----- COLORS ----- */
 
 :root {
-    --background-light: #F5F5F5;
+    /*--background-light: #F5F5F5;*/
+    --background-light: red;
     --background-dark: #0A0A0A;
     --1-light: #FFFFFF;
     --1-dark: #1F1F1F;
