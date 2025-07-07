@@ -74,7 +74,7 @@ class StudentActivityApp {
             // Activer le mode Modifier
             this.deleteMode = true;
             this.selectedIndexes = [];
-            button.textContent = 'Valider';
+            button.textContent = 'Supprimer';
             button.classList.add('validate');
 
             if (type === 'student') {
@@ -83,14 +83,14 @@ class StudentActivityApp {
                 this.setActivityDeleteMode(true);
             }
         } else {
-            // Valider la Modifier ou annuler
+            // Supprimer la Modifier ou annuler
             if (this.selectedIndexes.length > 0) {
                 this.confirmDelete();
             }
 
             this.deleteMode = false;
             this.selectedIndexes = [];
-            button.textContent = 'Editer';
+            button.textContent = 'Modifier';
             button.classList.remove('validate');
 
             if (type === 'student') {
@@ -282,7 +282,7 @@ class StudentActivityApp {
         this.deleteMode = false;
         this.selectedIndexes = [];
         const deleteButton = document.getElementById('deleteActivityButton');
-        deleteButton.textContent = 'Editer';
+        deleteButton.textContent = 'Modifier';
         deleteButton.classList.remove('validate');
     }
 
