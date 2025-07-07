@@ -73,12 +73,11 @@ input, textarea, select, button {
     --3-dark: #333333;
     --text-light: #000000;
     --text-dark: #FFFFFF;
-    --blue: #0ACDFF;
-    --green: #6DA34D;
-    --red: #BF211E;
-    --red-5O: rgba(191, 33, 30, 0.5);
-    --pink: #D55672;
-    --purple: #662C91;
+    --blue: rgba(10, 205, 255, 0.5);
+    --green: rgba(109, 163, 77, 0.5);
+    --red: rgba(191, 33, 30, 0.5);
+    --pink: rgba(213, 86, 114, 0.5);
+    --purple: rgba(102, 44, 145, 0.5);
 }
 
 /* ----- BODY ----- */
@@ -166,7 +165,6 @@ body {
     padding: 10px;
     border-radius: 14px;
     text-align: center;
-    color: #FFFFFF;
     background-color: var(--1);
     cursor: pointer;
 }
@@ -200,7 +198,7 @@ body {
 
 .card.selected {
     opacity: 1;
-    background-color: var(--red-5O);
+    background-color: var(--red);
 }
 
 .add-activity-button {
@@ -291,17 +289,14 @@ body {
 
 .activity-card.valide {
     background-color: var(--blue);
-    color: #FFFFFF;
 }
 
 .activity-card.acquis {
     background-color: var(--green);
-    color: #FFFFFF;
 }
 
 .activity-card.non-acquis {
     background-color: var(--red);
-    color: #FFFFFF;
 }
 
 .activity-card.delete-mode {
@@ -313,7 +308,7 @@ body {
 
 .activity-card.selected {
     opacity: 1;
-    background-color: var(--red-5O);
+    background-color: var(--red);
 }
 
 .back-button {
