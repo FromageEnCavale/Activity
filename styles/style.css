@@ -94,6 +94,26 @@ body {
     display: none;
 }
 
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.title {
+    font-size: 32px;
+}
+
+.delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 10px;
+    background-color: var(--1);
+    cursor: pointer;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -136,8 +156,13 @@ body {
     text-align: center;
 }
 
-.title {
-    font-size: 32px;
+.card.delete-mode {
+    color: var(--text);
+    background-color: var(--1);
+}
+
+.card.selected {
+    background-color: rgba(254, 95, 85, 0.5);
 }
 
 #studentName {
@@ -247,6 +272,15 @@ body {
 .activity-card.non-acquis {
     background-color: #FE5F55;
     color: white;
+}
+
+.activity-card.delete-mode {
+    color: var(--text);
+    background-color: var(--1);
+}
+
+.activity-card.selected {
+    background-color: rgba(254, 95, 85, 0.5);
 }
 
 .back-button {

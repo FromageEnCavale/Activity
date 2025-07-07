@@ -11,8 +11,9 @@ class StudentActivityApp {
         this.students = [];
         this.activities = [];
         this.currentStudent = null;
-        this.longPressTimer = null;
-        this.longPressThreshold = 800; // 800ms pour déclencher l'appui long
+        this.deleteMode = false;
+        this.selectedIndexes = []; // Array pour sélections multiples
+        this.deleteType = null; // 'student' ou 'activity'
 
         this.init();
     }
@@ -51,6 +52,75 @@ class StudentActivityApp {
         document.getElementById('backButton').addEventListener('click', () => {
             this.showMainView();
         });
+
+        // Bouton Supprimer élèves
+        document.getElementById('deleteStudentButton').addEventListener('click', () => {
+            this.toggleDeleteMode('student');
+        });
+
+        // Bouton Supprimer activités
+        document.getElementById('deleteActivityButton').addEventListener('click', () => {
+            this.toggleDeleteMode('activity');
+        });
+    }
+
+    toggleDeleteMode(type) {
+        this.deleteType = type;
+        const button = type === 'student' ?
+            document.getElementById('deleteStudentButton') :
+            document.getElementById('deleteActivityButton');
+
+        if (!this.deleteMode) {
+            // Activer le mode Supprimer
+            this.deleteMode = true;
+            this.selectedIndexes = [];
+            button.textContent = 'Valider';
+            button.classList.add('validate');
+
+            if (type === 'student') {
+                this.setStudentDeleteMode(true);
+            } else {
+                this.setActivityDeleteMode(true);
+            }
+        } else {
+            // Valider la Supprimer ou annuler
+            if (this.selectedIndexes.length > 0) {
+                this.confirmDelete();
+            }
+
+            this.deleteMode = false;
+            this.selectedIndexes = [];
+            button.textContent = 'Editer';
+            button.classList.remove('validate');
+
+            if (type === 'student') {
+                this.setStudentDeleteMode(false);
+            } else {
+                this.setActivityDeleteMode(false);
+            }
+        }
+    }
+
+    setStudentDeleteMode(enabled) {
+        const cards = document.querySelectorAll('#studentsGrid .card:not(.add-button)');
+        cards.forEach(card => {
+            if (enabled) {
+                card.classList.add('delete-mode');
+            } else {
+                card.classList.remove('delete-mode', 'selected');
+            }
+        });
+    }
+
+    setActivityDeleteMode(enabled) {
+        const cards = document.querySelectorAll('.activity-card');
+        cards.forEach(card => {
+            if (enabled) {
+                card.classList.add('delete-mode');
+            } else {
+                card.classList.remove('delete-mode', 'selected');
+            }
+        });
     }
 
     renderStudents() {
@@ -76,17 +146,16 @@ class StudentActivityApp {
                 }
 
                 card.innerHTML = `
-                                    <div class="student-name">${student.name}</div>
-                                `;
+                            <div class="student-name">${student.name}</div>
+                        `;
 
                 // Gestion du clic
                 card.addEventListener('click', () => {
-                    this.showStudentView(originalIndex);
-                });
-
-                // Gestion de l'appui long
-                this.setupLongPress(card, () => {
-                    this.showDeleteModal('student', originalIndex, student.name);
+                    if (this.deleteMode && this.deleteType === 'student') {
+                        this.selectForDeletion(originalIndex, card);
+                    } else if (!this.deleteMode) {
+                        this.showStudentView(originalIndex);
+                    }
                 });
 
                 grid.appendChild(card);
@@ -97,69 +166,79 @@ class StudentActivityApp {
         const addButton = document.createElement('div');
         addButton.className = 'card add-button';
         addButton.innerHTML = `
-                            <div>+</div>
-                            <div>Ajouter un élève</div>
-                        `;
+                    <div>+</div>
+                    <div>Ajouter un élève</div>
+                `;
         addButton.addEventListener('click', () => {
-            this.showAddStudentModal();
+            if (!this.deleteMode) {
+                this.showAddStudentModal();
+            }
         });
 
         grid.appendChild(addButton);
     }
 
-    setupLongPress(element, callback) {
-        let startTime = 0;
-        let startX = 0;
-        let startY = 0;
-        const threshold = 10; // Seuil de mouvement en pixels
+    selectForDeletion(index, element) {
+        const indexPosition = this.selectedIndexes.indexOf(index);
 
-        const startPress = (e) => {
-            startTime = Date.now();
-            const touch = e.touches ? e.touches[0] : e;
-            startX = touch.clientX;
-            startY = touch.clientY;
+        if (indexPosition === -1) {
+            // Ajouter à la sélection
+            this.selectedIndexes.push(index);
+            element.classList.add('selected');
+        } else {
+            // Retirer de la sélection
+            this.selectedIndexes.splice(indexPosition, 1);
+            element.classList.remove('selected');
+        }
+    }
 
-            element.classList.add('deleting');
+    confirmDelete() {
+        if (this.selectedIndexes.length === 0) return;
 
-            this.longPressTimer = setTimeout(() => {
-                callback();
-                element.classList.remove('deleting');
-            }, this.longPressThreshold);
-        };
+        if (this.deleteType === 'student') {
+            // Trier les index en ordre décroissant pour éviter les problèmes d'index
+            const sortedIndexes = this.selectedIndexes.sort((a, b) => b - a);
 
-        const endPress = (e) => {
-            const duration = Date.now() - startTime;
-            const touch = e.changedTouches ? e.changedTouches[0] : e;
-            const deltaX = Math.abs(touch.clientX - startX);
-            const deltaY = Math.abs(touch.clientY - startY);
+            sortedIndexes.forEach(index => {
+                this.students.splice(index, 1);
+            });
 
-            if (this.longPressTimer) {
-                clearTimeout(this.longPressTimer);
-                this.longPressTimer = null;
-            }
+            this.renderStudents();
+        } else if (this.deleteType === 'activity') {
+            // Trier les index en ordre décroissant pour éviter les problèmes d'index
+            const sortedIndexes = this.selectedIndexes.sort((a, b) => b - a);
 
-            element.classList.remove('deleting');
+            sortedIndexes.forEach(index => {
+                this.activities.splice(index, 1);
+            });
 
-            // Si c'est un clic court et sans mouvement, traiter comme un clic normal
-            if (duration < this.longPressThreshold && deltaX < threshold && deltaY < threshold) {
-                // Le clic normal sera géré par l'événement click
-            }
-        };
+            // Mettre à jour les états des activités pour tous les élèves
+            this.students.forEach(student => {
+                if (student.activityStates) {
+                    const newStates = {};
+                    Object.keys(student.activityStates).forEach(key => {
+                        const keyIndex = parseInt(key);
+                        // Calculer le nouveau index après Supprimer
+                        let newIndex = keyIndex;
+                        sortedIndexes.forEach(deletedIndex => {
+                            if (keyIndex > deletedIndex) {
+                                newIndex--;
+                            }
+                        });
 
-        const cancelPress = () => {
-            if (this.longPressTimer) {
-                clearTimeout(this.longPressTimer);
-                this.longPressTimer = null;
-            }
-            element.classList.remove('deleting');
-        };
+                        // Garder l'état seulement si l'activité n'a pas été supprimée
+                        if (!sortedIndexes.includes(keyIndex)) {
+                            newStates[newIndex] = student.activityStates[key];
+                        }
+                    });
+                    student.activityStates = newStates;
+                }
+            });
 
-        element.addEventListener('mousedown', startPress);
-        element.addEventListener('touchstart', startPress);
-        element.addEventListener('mouseup', endPress);
-        element.addEventListener('touchend', endPress);
-        element.addEventListener('mouseleave', cancelPress);
-        element.addEventListener('touchcancel', cancelPress);
+            this.renderActivities();
+        }
+
+        this.saveData();
     }
 
     showAddStudentModal() {
@@ -189,48 +268,6 @@ class StudentActivityApp {
         }
     }
 
-    showDeleteModal(type, index, name) {
-        const title = type === 'student' ? 'Supprimer l\'élève' : 'Supprimer l\'activité';
-        const text = type === 'student'
-            ? `Êtes-vous sûr de vouloir supprimer l'élève "${name}" ?`
-            : `Êtes-vous sûr de vouloir supprimer l'activité "${name}" pour tous les élèves ?`;
-
-        if (confirm(text)) {
-            this.confirmDelete(type, index);
-        }
-    }
-
-    confirmDelete(type, index) {
-        if (type === 'student') {
-            this.students.splice(index, 1);
-            this.renderStudents();
-        } else if (type === 'activity') {
-            this.activities.splice(index, 1);
-            // Mettre à jour les états des activités pour tous les élèves
-            this.students.forEach(student => {
-                if (student.activityStates && student.activityStates[index] !== undefined) {
-                    delete student.activityStates[index];
-                    // Réajuster les indices
-                    const newStates = {};
-                    Object.keys(student.activityStates).forEach(key => {
-                        const keyIndex = parseInt(key);
-                        if (keyIndex > index) {
-                            newStates[keyIndex - 1] = student.activityStates[key];
-                        } else if (keyIndex < index) {
-                            newStates[keyIndex] = student.activityStates[key];
-                        }
-                    });
-                    student.activityStates = newStates;
-                }
-            });
-            if (this.currentStudent !== null) {
-                this.renderActivities();
-            }
-        }
-
-        this.saveData();
-    }
-
     showStudentView(studentIndex) {
         this.currentStudent = studentIndex;
         const student = this.students[studentIndex];
@@ -240,12 +277,26 @@ class StudentActivityApp {
 
         document.getElementById('mainView').classList.add('hidden');
         document.getElementById('studentView').classList.add('active');
+
+        // Réinitialiser le mode Supprimer
+        this.deleteMode = false;
+        this.selectedIndexes = [];
+        const deleteButton = document.getElementById('deleteActivityButton');
+        deleteButton.textContent = 'Editer';
+        deleteButton.classList.remove('validate');
     }
 
     showMainView() {
         this.currentStudent = null;
         document.getElementById('mainView').classList.remove('hidden');
         document.getElementById('studentView').classList.remove('active');
+
+        // Réinitialiser le mode Supprimer
+        this.deleteMode = false;
+        this.selectedIndexes = [];
+        const deleteButton = document.getElementById('deleteStudentButton');
+        deleteButton.textContent = 'Supprimer';
+        deleteButton.classList.remove('validate');
     }
 
     renderActivities() {
@@ -274,17 +325,16 @@ class StudentActivityApp {
                 }
 
                 card.innerHTML = `
-                                    ${activity.name}
-                                `;
+                            ${activity.name}
+                        `;
 
-                // Gestion du clic pour changer d'état
+                // Gestion du clic
                 card.addEventListener('click', () => {
-                    this.toggleActivityState(originalIndex);
-                });
-
-                // Gestion de l'appui long
-                this.setupLongPress(card, () => {
-                    this.showDeleteModal('activity', originalIndex, activity.name);
+                    if (this.deleteMode && this.deleteType === 'activity') {
+                        this.selectForDeletion(originalIndex, card);
+                    } else if (!this.deleteMode) {
+                        this.toggleActivityState(originalIndex);
+                    }
                 });
 
                 container.appendChild(card);
@@ -299,7 +349,7 @@ class StudentActivityApp {
         }
 
         const currentState = student.activityStates[activityIndex] || 0;
-        const newState = (currentState + 1) % 4; // 0, 1, 2, 3, 4, puis retour à 0
+        const newState = (currentState + 1) % 4; // 0, 1, 2, 3, puis retour à 0
 
         if (newState === 0) {
             delete student.activityStates[activityIndex];
