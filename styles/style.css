@@ -97,7 +97,7 @@ body {
     background-color: var(--background);
     font-family: system-ui, sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 /* ----- STUDENT PAGE ----- */
@@ -121,6 +121,7 @@ body {
 }
 
 .title {
+    font-weight: 600;
     font-size: 32px;
 }
 
@@ -164,6 +165,8 @@ body {
     height: 100px;
     padding: 10px;
     border-radius: 14px;
+    text-align: center;
+    color: #FFFFFF;
     background-color: var(--1);
     cursor: pointer;
 }
@@ -183,8 +186,8 @@ body {
     align-items: center;
     gap: 2px;
     border: 2px dashed var(--2);
-    background-color: transparent;
     text-align: center;
+    background-color: transparent;
 }
 
 .card.delete-mode {
@@ -197,14 +200,6 @@ body {
 .card.selected {
     opacity: 1;
     background-color: var(--red-5O);
-}
-
-#studentName {
-    font-size: 32px;
-}
-
-.student-name {
-    text-align: center;
 }
 
 .add-activity-button {
@@ -288,24 +283,24 @@ body {
     min-height: 100px;
     padding: 10px 14px;
     border-radius: 14px;
-    background-color: var(--1);
     text-align: center;
+    background-color: var(--1);
     cursor: pointer;
 }
 
 .activity-card.valide {
     background-color: var(--blue);
-    color: white;
+    color: #FFFFFF;
 }
 
 .activity-card.acquis {
     background-color: var(--green);
-    color: white;
+    color: #FFFFFF;
 }
 
 .activity-card.non-acquis {
     background-color: var(--red);
-    color: white;
+    color: #FFFFFF;
 }
 
 .activity-card.delete-mode {

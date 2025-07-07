@@ -191,7 +191,7 @@ class StudentActivityApp {
                 }
 
                 card.innerHTML = `
-                            <div class="student-name">${student.name}</div>
+                            ${student.name}
                         `;
 
                 card.addEventListener('click', () => {
