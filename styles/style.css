@@ -191,13 +191,11 @@ body {
 
 .card.delete-mode {
     border: 2px dashed var(--red);
-    opacity: 0.5;
     color: var(--text);
     background-color: var(--1);
 }
 
 .card.selected {
-    opacity: 1;
     background-color: var(--red);
 }
 
@@ -301,13 +299,11 @@ body {
 
 .activity-card.delete-mode {
     border: 2px dashed var(--red);
-    opacity: 0.5;
     color: var(--text);
     background-color: var(--1);
 }
 
 .activity-card.selected {
-    opacity: 1;
     background-color: var(--red);
 }
 
