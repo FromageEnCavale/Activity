@@ -319,5 +319,9 @@ body {
 /* masque tout le contenu en paysage */
 
 @media screen and (orientation: landscape) {
-    body > * { display: none; }
+
+    * {
+        display: none;
+    }
+
 }
