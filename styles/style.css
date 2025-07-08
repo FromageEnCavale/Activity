@@ -165,10 +165,12 @@ body {
 }
 
 .card.ps-student {
+    color: var(--1);
     background-color: var(--pink);
 }
 
 .card.ms-student {
+    color: var(--1);
     background-color: var(--purple);
 }
 
@@ -191,7 +193,8 @@ body {
 }
 
 .card.selected {
-    background-color: var(--red);
+    color: var(--1);
+    background-color: rgba(219, 58, 52, 0.5);
 }
 
 .add-activity-button {
@@ -281,14 +284,17 @@ body {
 }
 
 .activity-card.valide {
+    color: var(--1);
     background-color: var(--blue);
 }
 
 .activity-card.acquis {
+    color: var(--1);
     background-color: var(--green);
 }
 
 .activity-card.non-acquis {
+    color: var(--1);
     background-color: var(--red);
 }
 
@@ -299,7 +305,8 @@ body {
 }
 
 .activity-card.selected {
-    background-color: var(--red);
+    color: var(--1);
+    background-color: rgba(219, 58, 52, 0.5);
 }
 
 .back-button {
