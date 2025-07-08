@@ -193,7 +193,8 @@ body {
 }
 
 .card.selected {
-    background-color: var(--red);
+    color: var(--1);
+    background-color: rgba(191, 33, 30, 0.5);
 }
 
 .add-activity-button {
@@ -304,7 +305,8 @@ body {
 }
 
 .activity-card.selected {
-    background-color: var(--red);
+    color: var(--1);
+    background-color: rgba(191, 33, 30, 0.5);
 }
 
 .back-button {
