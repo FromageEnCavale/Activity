@@ -323,14 +323,13 @@ body {
 }
 
 #landscape-lock {
-    display: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: white;
-    color: black;
-    font-size: 1.2rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: env(safe-area-inset-top) 1rem 1rem;
+    padding: 50px 0;
 }
 
 @media screen and (orientation: landscape) {
