@@ -321,20 +321,3 @@ body {
 @media screen and (orientation: landscape) {
     body > * { display: none; }
 }
-
-#landscape-lock {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 50px 0;
-    text-align: center;
-    background-color: var(--background);
-}
-
-@media screen and (orientation: landscape) {
-    #landscape-lock { display: block; }
-}
