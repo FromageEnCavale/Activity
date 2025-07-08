@@ -63,16 +63,11 @@ input, textarea, select, button {
 /* ----- COLORS ----- */
 
 :root {
-    --background-light: #F5F5F5;
-    --background-dark: #0A0A0A;
-    --1-light: #FFFFFF;
-    --1-dark: #1F1F1F;
-    --2-light: #E0E0E0;
-    --2-dark: #292929;
-    --3-light: #D6D6D6;
-    --3-dark: #333333;
-    --text-light: #000000;
-    --text-dark: #FFFFFF;
+    --background: #F5F5F5;
+    --text: #0A0A0A;
+    --1: #FFFFFF;
+    --2: #E0E0E0;
+    --3: #D6D6D6;
     --blue: rgba(10, 205, 255, 0.1);
     --green: rgba(109, 163, 77, 0.1);
     --red: rgba(191, 33, 30, 0.1);
@@ -320,31 +315,3 @@ body {
     background-color: var(--1);
     cursor: pointer;
 }
-
-/* ----- MEDIA QUERY ----- */
-
-@media (prefers-color-scheme: light) {
-
-    :root {
-        --background: var(--background-light);
-        --text: var(--text-light);
-        --1: var(--1-light);
-        --2: var(--2-light);
-        --3: var(--3-light);
-    }
-
-}
-
-/*
-@media (prefers-color-scheme: dark) {
-
-    :root {
-        --background: var(--background-dark);
-        --text: var(--text-dark);
-        --1: var(--1-dark);
-        --2: var(--2-dark);
-        --3: var(--3-dark);
-    }
-
-}
-*/
