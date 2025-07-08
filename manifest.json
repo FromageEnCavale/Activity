@@ -2,7 +2,7 @@
   "name": "Evaluation App",
   "short_name": "Evaluation",
   "start_url": "./index.html",
-  "display": "fullscreen",
+  "display": "standalone",
   "background_color": "#F5F5F5",
   "theme_color": "#F5F5F5",
   "orientation": "portrait",
@@ -19,6 +19,5 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ],
-  "display_override": ["fullscreen", "standalone"]
+  ]
 }
