@@ -88,6 +88,7 @@ html, body {
     scrollbar-width: none;
     -webkit-user-drag: none;
     touch-action: manipulation;
+    background-color: #F5F5F5;
 }
 
 body {
