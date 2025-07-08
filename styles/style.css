@@ -88,14 +88,12 @@ html, body {
     scrollbar-width: none;
     -webkit-user-drag: none;
     touch-action: manipulation;
-    background-color: #F5F5F5;
 }
 
 body {
     padding: 50px 20px;
     color: var(--text);
-    /*background-color: var(--background);*/
-    background-color: #F5F5F5;
+    background-color: var(--background);
     font-family: system-ui, sans-serif;
     font-weight: 400;
     font-size: 16px;
