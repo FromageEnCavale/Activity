@@ -68,11 +68,11 @@ input, textarea, select, button {
     --1: #FFFFFF;
     --2: #E0E0E0;
     --3: #D6D6D6;
-    --blue: rgba(0, 0, 255, 0.5);
-    --green: rgba(0, 128, 0, 0.5);
-    --red: rgba(255, 0, 0, 0.5);
-    --pink: rgba(255, 192, 203, 0.5);
-    --purple: rgba(128, 0, 128, 0.5);
+    --blue: #1982C4;
+    --green: #8AC926;
+    --red: #DB3A34;
+    --pink: #DB5ABA;
+    --purple: #9D44B5;
 }
 
 /* ----- BODY ----- */
