@@ -6,6 +6,11 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+if (screen.orientation && screen.orientation.lock) {
+    screen.orientation.lock('portrait')
+        .catch(err => console.warn('Impossible de lock l’orientation:', err));
+}
+
 class StudentActivityApp {
     constructor() {
         this.students = [];
