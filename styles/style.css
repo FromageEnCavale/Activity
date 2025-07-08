@@ -315,3 +315,24 @@ body {
     background-color: var(--1);
     cursor: pointer;
 }
+
+/* masque tout le contenu en paysage */
+
+@media screen and (orientation: landscape) {
+    body > * { display: none; }
+}
+
+#landscape-lock {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: white;
+    color: black;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: env(safe-area-inset-top) 1rem 1rem;
+}
+
+@media screen and (orientation: landscape) {
+    #landscape-lock { display: block; }
+}
