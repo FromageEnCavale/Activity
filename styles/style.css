@@ -320,7 +320,11 @@ body {
 
 @media screen and (orientation: landscape) {
 
-    * {
+    .main-view {
+        display: none;
+    }
+
+    .student-view {
         display: none;
     }
 
