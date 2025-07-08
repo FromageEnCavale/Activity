@@ -68,11 +68,11 @@ input, textarea, select, button {
     --1: #FFFFFF;
     --2: #E0E0E0;
     --3: #D6D6D6;
-    --blue: rgba(10, 205, 255, 0.25);
-    --green: rgba(109, 163, 77, 0.25);
-    --red: rgba(191, 33, 30, 0.25);
-    --pink: rgba(213, 86, 114, 0.25);
-    --purple: rgba(102, 44, 145, 0.25);
+    --blue: rgba(10, 205, 255, 1);
+    --green: rgba(109, 163, 77, 1);
+    --red: rgba(191, 33, 30, 1);
+    --pink: rgba(213, 86, 114, 1);
+    --purple: rgba(102, 44, 145, 1);
 }
 
 /* ----- BODY ----- */
@@ -165,10 +165,12 @@ body {
 }
 
 .card.ps-student {
+    color: var(--1);
     background-color: var(--pink);
 }
 
 .card.ms-student {
+    color: var(--1);
     background-color: var(--purple);
 }
 
@@ -281,14 +283,17 @@ body {
 }
 
 .activity-card.valide {
+    color: var(--1);
     background-color: var(--blue);
 }
 
 .activity-card.acquis {
+    color: var(--1);
     background-color: var(--green);
 }
 
 .activity-card.non-acquis {
+    color: var(--1);
     background-color: var(--red);
 }
 
