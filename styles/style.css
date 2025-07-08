@@ -316,7 +316,7 @@ body {
     cursor: pointer;
 }
 
-/* masque tout le contenu en paysage */
+/* ----- HIDE LANDSCAPE ON IOS ----- */
 
 @media screen and (orientation: landscape) {
 
