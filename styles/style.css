@@ -144,8 +144,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin-bottom: 25px;
-    padding-bottom: 45px;
+    margin-bottom: 70px;
     border-radius: 14px;
     overflow-y: scroll;
     scrollbar-width: none;
@@ -162,6 +161,7 @@ body {
     text-align: center;
     background-color: var(--1);
     cursor: pointer;
+    overflow: hidden;
 }
 
 .card.ps-student {
@@ -207,6 +207,7 @@ body {
     height: 50px;
     padding: 10px 14px;
     border-radius: 14px;
+    text-align: center;
     background-color: var(--1);
     cursor: pointer;
 }
@@ -264,8 +265,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 25px;
-    padding-bottom: 45px;
+    margin-bottom: 70px;
     border-radius: 14px;
     overflow-y: scroll;
     scrollbar-width: none;
@@ -319,7 +319,8 @@ body {
     height: 50px;
     padding: 10px 14px;
     border-radius: 14px;
-    background-color: var(--2);
+    text-align: center;
+    background-color: var(--1);
     cursor: pointer;
 }
 
